@@ -29,12 +29,14 @@ public class WaitingForRequest extends Behaviour {
                     ACLMessage response = request.createReply();
                     if (action == 0) {
                         response.setPerformative(ACLMessage.CONFIRM);
+                        response.setContent("= 0");
                         agent.send(response);
                         System.out.println("I-ve sent a confirm message!");
                     }
                     else if (action == 1 ) {
                         response.setPerformative(ACLMessage.DISCONFIRM);
                         agent.send(response);
+                        response.setContent("= 1");
                         System.out.println("I-ve sent a disconfirm message!");
                     }
                     else {
